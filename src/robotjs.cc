@@ -156,7 +156,7 @@ NAN_METHOD(mouseClick)
 
 	if (info.Length() == 2)
 	{
-		doubleC = info[1]->BooleanValue();
+		doubleC = info[1]->BooleanValue(Nan::GetCurrentContext()).ToChecked();
 	}
 	else if (info.Length() > 2)
 	{
@@ -417,7 +417,7 @@ int CheckKeyFlags(char* f, MMKeyFlags* flags)
 
 int GetFlagsFromString(v8::Local<v8::Value> value, MMKeyFlags* flags)
 {
-	v8::String::Utf8Value fstr(value->ToString());
+	v8::String::Utf8Value fstr(value->ToString(Nan::GetCurrentContext()).FromMaybe(v8::Local<v8::String>());
 	return CheckKeyFlags(*fstr, flags);
 }
 
@@ -454,7 +454,7 @@ NAN_METHOD(keyTap)
 
 	char *k;
 
-	v8::String::Utf8Value kstr(info[0]->ToString());
+	v8::String::Utf8Value kstr(info[0]->ToString(Nan::GetCurrentContext()).FromMaybe(v8::Local<v8::String>()));
 	k = *kstr;
 
 	switch (info.Length())
