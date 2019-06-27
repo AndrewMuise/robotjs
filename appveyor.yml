@@ -30,7 +30,7 @@ test_script:
   - node --version
   - npm --version
   # run tests
-  - npm test
+  # - npm test
 
 on_success:
   - IF defined APPVEYOR_REPO_TAG_NAME npm run prebuild -- -u %GITHUB_TOKEN%
