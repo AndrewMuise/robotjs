@@ -8,7 +8,7 @@
     "test": "run-script-os",
     "test:darwin:linux": "jasmine 'test/**/*.js'",
     "test:win32": "jasmine test/**/*.js",
-    "install": "prebuild-install || npm rebuild --runtime=electron --target=5.0.3 --disturl=https://atom.io/download/atom-shell --abi=72",
+    "install": "prebuild-install || npm rebuild --runtime=electron --target=5.0.8 --disturl=https://atom.io/download/atom-shell --abi=70",
     "prebuild": "prebuild --all"
   },
   "repository": {
